@@ -1,0 +1,87 @@
+.hidden {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5c6e0;
+    color: #7a2d55;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.screen {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #b05080;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #b05080;
+    font-size: 20px;
+    margin: 24px 0 16px 0;
+}
+
+h3 {
+    color: #b05080;
+    font-size: 16px;
+    margin: 16px 0 10px 0;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    background-color: #b05080;
+    color: #f5c6e0;
+    border: 4px solid #7a2d55;
+    padding: 16px 24px;
+    cursor: pointer;
+    margin: 10px 0;
+    display: block;
+}
+
+button:hover {
+    background-color: #7a2d55;
+}
+
+input, textarea, select {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    background-color: #f5c6e0;
+    border: 3px solid #b05080;
+    padding: 12px;
+    margin: 10px 0;
+    display: block;
+    width: 100%;
+    color: #7a2d55;
+}
+
+#add-form, #book-list, #profile-stats, #currently-reading, #recommendation {
+    background-color: #f0a8cc;
+    border: 4px solid #b05080;
+    padding: 24px;
+    margin: 20px 0;
+}
+
+.book-entry {
+    border: 3px solid #b05080;
+    padding: 16px;
+    margin: 12px 0;
+    background-color: #f9d9ec;
+}
+
+.menu-buttons {
+    margin-top: 20px;
+}

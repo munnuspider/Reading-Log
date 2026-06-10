@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Lite</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!--screen 1: menu-->
+    <div id="screen-menu" class="screen">
+        <h1 class="title">✦ Shelf Navigator ✦</h1>
+        <div class="menu-buttons">
+            <button onclick="showScreen('screen-tbr')">My TBR List</button>
+            <button onclick="showScreen('screen-profile')">My Profile</button>
+        </div>
+    </div>
+
+    <!--screen 2: tbr list-->
+    <div id="screen-tbr" class="screen hidden">
+        <button onclick="showScreen('screen-menu')">← Back</button>
+        <h2>My TBR List</h2>
+
+        <!--add book form-->
+        <div id="add-form">
+            <input type="text" id="input-title" placeholder="Title">
+            <input type="text" id="input-author" placeholder="Author">
+            <input type="number" id="input-rating" placeholder="Rating (1-5)" min="1" max="5">
+            <select id="input-status"> <!--to read/read/reading-->
+                <option value="to_read">To Read</option>
+                <option value="reading">Reading</option>
+                <option value="read">Read</option>
+            </select>
+            <textarea id="input-comments" placeholder="Comments..."></textarea>
+            <button onclick="addBook()">Add Book</button>
+        </div>
+
+        <!--list of books-->
+        <div id="book-list"></div>
+    </div>
+
+    <!--screen 3: profile with stats, currently reading, and recs-->
+    <div id="screen-profile" class="screen hidden">
+        <button onclick="showScreen('screen-menu')">← Back</button>
+        <h2>My Profile</h2>
+
+        <!--stats-->
+        <div id="profile-stats">
+            <p>Total books read: <span id="stat-total">...</span></p>
+            <p>Books read this month: <span id="stat-month">...</span></p>
+        </div>
+
+        <!--searchable list of read books-->
+        <div id="books-read-section">
+            <h3>Books I've Read</h3>
+            <input type="text" id="search-read" placeholder="Search..." oninput="filterReadBooks()">
+            <div id="read-books-list"></div>
+        </div>
+
+        <!--currently reading-->
+        <div id="currently-reading">
+            <h3>Currently Reading</h3>
+            <div id="current-book">...</div>
+        </div>
+
+        <!--ok i'd put my recommendation ML model below-->
+        <div id="recommendation">
+            <h3>Your Next Read</h3>
+            <p>ML model coming soon</p>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
