@@ -8,6 +8,34 @@ function showScreen(screenId) {
 //i really need to brush up on javascript so i will probs go do that now
 
 async function loadBooks() {
+    async function loadBooks() {
+    const res = await fetch('/books');
+    window.tbrBooks = await res.json();
+    renderTbrBooks(window.tbrBooks);
+}
+
+function renderTbrBooks(books) {
+    const list = document.getElementById('book-list');
+    list.innerHTML = '';
+    books.forEach(book => {
+        list.innerHTML += `
+            <div class="book-entry">
+                <p><strong>${book[1]}</strong> by ${book[2]}</p>
+                <p>Rating: ${book[3]} | Status: ${book[4]}</p>
+                <p>${book[5] ?? ''}</p>
+                <button onclick="deleteBook(${book[0]})">Delete</button>
+            </div>
+        `;
+    });
+}
+
+function filterTbrBooks() {
+    const query = document.getElementById('search-tbr').value.toLowerCase();
+    const filtered = window.tbrBooks.filter(b =>
+        b[1].toLowerCase().includes(query) || b[2].toLowerCase().includes(query)
+    );
+    renderTbrBooks(filtered);
+}
     const res = await fetch('/books');
     const books = await res.json();
     const list = document.getElementById('book-list');
